@@ -1,6 +1,6 @@
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.0.4_@babel+core@7.22.19_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[2].use[1]!./node_modules/.pnpm/next@14.0.4_@babel+core@7.22.19_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[11].oneOf[2].use[2]!./node_modules/.pnpm/next@14.0.4_@babel+core@7.22.19_react-dom@18.2.0_react@18.2.0/node_modules/next/font/google/target.css?{"path":"src\\app\\layout.tsx","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.0.4_@babel+core@7.22.19_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[2].use[1]!./node_modules/.pnpm/next@14.0.4_@babel+core@7.22.19_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[11].oneOf[2].use[2]!./node_modules/.pnpm/next@14.0.4_@babel+core@7.22.19_react-dom@18.2.0_react@18.2.0/node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* cyrillic-ext */
 @font-face {
   font-family: '__Inter_e66fe9';
@@ -648,6 +648,9 @@ video {
 .pointer-events-none {
   pointer-events: none;
 }
+.static {
+  position: static;
+}
 .absolute {
   position: absolute;
 }
@@ -657,14 +660,27 @@ video {
 .bottom-0 {
   bottom: 0px;
 }
-.left-\[28\%\] {
-  left: 28%;
+.left-\[27\.5\%\] {
+  left: 27.5%;
 }
 .-z-20 {
   z-index: -20;
 }
+.z-50 {
+  z-index: 50;
+}
 .m-auto {
   margin: auto;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.me-2 {
+  margin-inline-end: 0.5rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
 }
 .mt-32 {
   margin-top: 8rem;
@@ -693,8 +709,20 @@ video {
 .h-14 {
   height: 3.5rem;
 }
+.h-4 {
+  height: 1rem;
+}
+.h-6 {
+  height: 1.5rem;
+}
+.h-8 {
+  height: 2rem;
+}
 .h-9 {
   height: 2.25rem;
+}
+.h-\[1px\] {
+  height: 1px;
 }
 .h-full {
   height: 100%;
@@ -705,16 +733,64 @@ video {
 .w-10 {
   width: 2.5rem;
 }
+.w-4 {
+  width: 1rem;
+}
 .w-52 {
   width: 13rem;
 }
+.w-6 {
+  width: 1.5rem;
+}
+.w-72 {
+  width: 18rem;
+}
+.w-\[1px\] {
+  width: 1px;
+}
 .w-full {
   width: 100%;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+@keyframes fade-down {
+
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-down {
+  animation: fade-down 1s both;
+}
+@keyframes fade-up {
+
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 1s both;
 }
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .grid-rows-\[auto\2c 1fr\2c auto\] {
   grid-template-rows: auto 1fr auto;
@@ -743,14 +819,36 @@ video {
 .gap-5 {
   gap: 1.25rem;
 }
+.gap-4 {
+  gap: 1rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.space-y-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+.space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
+}
 .whitespace-nowrap {
   white-space: nowrap;
 }
 .rounded-full {
   border-radius: 9999px;
 }
+.rounded-lg {
+  border-radius: var(--radius);
+}
 .rounded-md {
   border-radius: calc(var(--radius) - 2px);
+}
+.rounded-sm {
+  border-radius: calc(var(--radius) - 4px);
 }
 .border {
   border-width: 1px;
@@ -765,14 +863,38 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
+.bg-border {
+  background-color: hsl(var(--border));
+}
+.bg-card {
+  background-color: hsl(var(--card));
+}
 .bg-destructive {
   background-color: hsl(var(--destructive));
+}
+.bg-popover {
+  background-color: hsl(var(--popover));
 }
 .bg-primary {
   background-color: hsl(var(--primary));
 }
 .bg-secondary {
   background-color: hsl(var(--secondary));
+}
+.bg-secondary\/70 {
+  background-color: hsl(var(--secondary) / 0.7);
+}
+.bg-white\/30 {
+  background-color: rgb(255 255 255 / 0.3);
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
 }
 .px-20 {
   padding-left: 5rem;
@@ -786,6 +908,14 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -794,15 +924,30 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.pt-0 {
+  padding-top: 0px;
 }
 .text-center {
   text-align: center;
 }
 .font-sans {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -834,18 +979,40 @@ video {
 .font-medium {
   font-weight: 500;
 }
+.font-semibold {
+  font-weight: 600;
+}
 .leading-\[4rem\] {
   line-height: 4rem;
+}
+.leading-none {
+  line-height: 1;
+}
+.tracking-tight {
+  letter-spacing: -0.025em;
 }
 .tracking-wide {
   letter-spacing: 0.025em;
 }
+.text-card-foreground {
+  color: hsl(var(--card-foreground));
+}
 .text-destructive-foreground {
   color: hsl(var(--destructive-foreground));
+}
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+.text-popover-foreground {
+  color: hsl(var(--popover-foreground));
 }
 .text-primary {
   color: hsl(var(--primary));
@@ -873,6 +1040,20 @@ video {
 .opacity-80 {
   opacity: 0.8;
 }
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 .outline {
   outline-style: solid;
 }
@@ -884,19 +1065,20 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-@keyframes enter {
-
-  from {
-    opacity: var(--tw-enter-opacity, 1);
-    transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0));
-  }
+.animate-delay-150 {
+  animation-delay: 150ms;
 }
-@keyframes exit {
-
-  to {
-    opacity: var(--tw-exit-opacity, 1);
-    transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
-  }
+.animate-normal {
+  animation-direction: normal;
+}
+.animate-fill-both {
+  animation-fill-mode: both;
+}
+.animate-once {
+  animation-iteration-count: 1;
+}
+.animate-ease-out {
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 .pattern-hive-gray-500\/20 {
   background-image: url("data:image/svg+xml,%3Csvg width='58' height='100' viewBox='0 0 58 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_504_365)'%3E%3Cpath d='M28.9961 33.6385L9.34601e-05 16.9369L0.00409317 -16.4762L29.0041 -33.1858L58.0001 -16.4822L57.9961 16.9309L28.9961 33.6385ZM28.9961 133.529L9.34601e-05 116.827L0.00409317 83.414L29.0041 66.7065L58.0001 83.408L57.9961 116.819L28.9961 133.529ZM57.9921 83.408L28.9961 66.7065L29.0001 33.2953L58.0001 16.5857L86.9961 33.2873L86.9921 66.7005L57.9921 83.408ZM-0.00790596 83.408L-29.0039 66.7065L-28.9999 33.2953L9.34601e-05 16.5857L28.9961 33.2873L28.9921 66.7005L-0.00790596 83.408Z' stroke='rgb(107 114 128 / 0.2)' stroke-width='2'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_504_365'%3E%3Crect width='58' height='100' fill='rgb(107 114 128 / 0.2)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
@@ -921,6 +1103,10 @@ video {
 
 .hover\:bg-primary\/90:hover {
   background-color: hsl(var(--primary) / 0.9);
+}
+
+.hover\:bg-secondary:hover {
+  background-color: hsl(var(--secondary));
 }
 
 .hover\:bg-secondary\/80:hover {
