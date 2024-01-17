@@ -1,4 +1,4 @@
-// File: D:\Projects\shorten_url\src\app\dashboard\page.tsx
+// File: /Users/vitico/Documents/Proyects/shorten_url/src/app/dashboard/page.tsx
 import * as entry from '../../../../src/app/dashboard/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

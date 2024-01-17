@@ -47,7 +47,7 @@ export function Header() {
   };
 
   return (
-    <header className="flex w-full items-center justify-between px-20 py-2">
+    <header className="flex w-full items-center justify-between px-40 py-2">
       <h1 className="text-4xl font-bold leading-[4rem]">ShortTiny</h1>
       <div className=" relative flex items-center justify-center gap-5">
         {user ? (

@@ -20,12 +20,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en">
       <body
         className={clsx(
-          "dark  container m-auto grid h-full min-h-screen w-full grid-rows-[auto,1fr,auto] bg-background px-4 font-sans antialiased pattern-hive-gray-500/20 pattern-hive-scale-50",
+          "dark grid h-full min-h-screen w-full grid-rows-[auto,1fr,auto] bg-background  font-sans antialiased pattern-hive-gray-500/20 pattern-hive-scale-50",
           inter.className,
         )}
       >
         <Header />
-        <main className="px-20 py-8">{children}</main>
+        <main className="px-40 py-8">{children}</main>
         <Footer />
       </body>
     </html>
