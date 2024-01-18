@@ -94,7 +94,7 @@ export function CardSlug(props: CardSlugProps) {
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem
-                  onClick={() => copyToClipboard(`http://localhost:3000/q/${slug_url}`)}
+                  onClick={() => copyToClipboard(`short-urls-vercel-app.vercel.app/q/${slug_url}`)}
                 >
                   <Copy className="mr-2 h-4 w-4" />
                   <span>Copy</span>
