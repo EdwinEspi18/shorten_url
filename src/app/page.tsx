@@ -8,6 +8,8 @@ import {toast} from "sonner";
 import {Button} from "@/components/ui/button";
 import {Toaster} from "@/components/ui/sonner";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   const supabase = createClientComponentClient();
   const router = useRouter();

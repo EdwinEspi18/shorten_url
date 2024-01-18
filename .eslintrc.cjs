@@ -1,4 +1,4 @@
-const {resolve} = require("node:path");
+const { resolve } = require("node:path");
 
 const project = resolve(__dirname, "tsconfig.json");
 
@@ -23,6 +23,8 @@ module.exports = {
     },
   },
   rules: {
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
     "prettier/prettier": [
       "warn",
       {
@@ -41,7 +43,16 @@ module.exports = {
     "import/order": [
       "warn",
       {
-        groups: ["type", "builtin", "object", "external", "internal", "parent", "sibling", "index"],
+        groups: [
+          "type",
+          "builtin",
+          "object",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
         pathGroups: [
           {
             pattern: "~/**",
@@ -54,9 +65,13 @@ module.exports = {
     ],
     "padding-line-between-statements": [
       "warn",
-      {blankLine: "always", prev: "*", next: ["return", "export"]},
-      {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
-      {blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"]},
+      { blankLine: "always", prev: "*", next: ["return", "export"] },
+      { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
+      {
+        blankLine: "any",
+        prev: ["const", "let", "var"],
+        next: ["const", "let", "var"],
+      },
     ],
     "no-console": "warn",
     "react/prop-types": "off",

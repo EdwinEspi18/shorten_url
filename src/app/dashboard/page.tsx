@@ -2,9 +2,9 @@ import {createServerComponentClient} from "@supabase/auth-helpers-nextjs";
 import {cookies} from "next/headers";
 
 import {Separator} from "@/components/ui/separator";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {SheetCreateLink} from "@/components/sheet-create-link";
 import {CardSlug} from "@/components/card-slug";
+import {ScrollArea} from "@/components/ui/scroll-area";
 
 export default async function DashboardPage() {
   const cookieStore = cookies();
@@ -22,17 +22,20 @@ export default async function DashboardPage() {
         <SheetCreateLink />
       </div>
       <Separator className="my-4 bg-white/30" />
-      <div className="grid grid-cols-3 gap-10">
-        {data?.map(({id, original_url, slug_url, description}) => (
-          <CardSlug
-            key={id}
-            description={description}
-            id={id}
-            original_url={original_url}
-            slug_url={slug_url}
-          />
-        ))}
-      </div>
+      {/* className="grid grid-cols-3 gap-10" */}
+      <ScrollArea className="h-96 w-full rounded-md border">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+          {data?.map(({id, original_url, slug_url, description}) => (
+            <CardSlug
+              key={id}
+              description={description}
+              id={id}
+              original_url={original_url}
+              slug_url={slug_url}
+            />
+          ))}
+        </div>
+      </ScrollArea>
     </section>
   );
 }

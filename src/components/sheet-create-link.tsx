@@ -14,7 +14,6 @@ import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/comp
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 
 import {Separator} from "./ui/separator";
-import {Toaster} from "./ui/sonner";
 
 export function SheetCreateLink() {
   const router = useRouter();
@@ -62,7 +61,7 @@ export function SheetCreateLink() {
   }
 
   return (
-    <Sheet modal>
+    <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline">
           <Plus className="mr-2 h-4 w-4" color="#fff" />
@@ -119,7 +118,6 @@ export function SheetCreateLink() {
           </form>
         </Form>
       </SheetContent>
-      <Toaster richColors position="top-center" />
     </Sheet>
   );
 }

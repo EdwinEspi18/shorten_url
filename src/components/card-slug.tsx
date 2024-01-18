@@ -4,6 +4,10 @@ import {Copy, Edit, Sliders, Trash} from "lucide-react";
 import {toast} from "sonner";
 import {createClientComponentClient} from "@supabase/auth-helpers-nextjs";
 import {useRouter} from "next/navigation";
+import {useState} from "react";
+import Link from "next/link";
+
+import {getBaseUrl} from "@/lib/getBaseUrl";
 
 import {Button} from "./ui/button";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "./ui/card";
@@ -16,19 +20,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import {DialogEdit} from "./edit-moda";
 
-interface CardSlugProps {
+export interface CardSlugProps {
   id: string;
   original_url: string;
   slug_url: string;
   description?: string;
 }
 
-export function CardSlug({id, original_url, slug_url, description}: CardSlugProps) {
+export function CardSlug(props: CardSlugProps) {
+  const {id, original_url, slug_url, description} = props;
+
+  const [toogleModal, setToogleModal] = useState(false);
+
   const router = useRouter();
   const supabase = createClientComponentClient();
 
   async function copyToClipboard(txt: string) {
+    console.log(txt);
     try {
       const clipboardItem = new ClipboardItem({
         "text/plain": new Blob([txt], {type: "text/plain"}),
@@ -53,47 +63,58 @@ export function CardSlug({id, original_url, slug_url, description}: CardSlugProp
   }
 
   return (
-    <Card className="relative">
-      <CardHeader>
-        <CardTitle className="font-medium">/{slug_url}</CardTitle>
-        <CardDescription className="truncate font-medium">{original_url}</CardDescription>
-      </CardHeader>
-      {description ? (
-        <CardContent>
-          <p>{description}</p>
-        </CardContent>
-      ) : null}
-      <CardFooter className="absolute right-0 top-3">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button type="button" variant="ghost">
-              <Sliders className="h-5 w-5" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-40">
-            <DropdownMenuLabel className="text-center">Options</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem
-                onClick={() => copyToClipboard(`http://localhost:3000/q/${slug_url}`)}
-              >
-                <Copy className="mr-2 h-4 w-4" />
-                <span>Copy</span>
-              </DropdownMenuItem>
+    <>
+      <Card className="relative">
+        <CardHeader>
+          <CardTitle>
+            <Link
+              className="cursor-pointer font-medium transition-all hover:font-bold"
+              href={`${getBaseUrl()}/q/${slug_url}`}
+              target="_blank"
+            >
+              /{slug_url}
+            </Link>
+          </CardTitle>
+          <CardDescription className="truncate font-medium">{original_url}</CardDescription>
+        </CardHeader>
+        {description ? (
+          <CardContent>
+            <p>{description}</p>
+          </CardContent>
+        ) : null}
+        <CardFooter className="absolute right-0 top-3">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button type="button" variant="ghost">
+                <Sliders className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-40">
+              <DropdownMenuLabel className="text-center">Options</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <Edit className="mr-2 h-4 w-4" />
-                <span>Edit</span>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => deleteSlug(id)}>
-                <Trash className="mr-2 h-4 w-4" />
-                <span>Delete</span>
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </CardFooter>
-    </Card>
+              <DropdownMenuGroup>
+                <DropdownMenuItem
+                  onClick={() => copyToClipboard(`http://localhost:3000/q/${slug_url}`)}
+                >
+                  <Copy className="mr-2 h-4 w-4" />
+                  <span>Copy</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setToogleModal(!toogleModal)}>
+                  <Edit className="mr-2 h-4 w-4" />
+                  <span>Edit</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => deleteSlug(id)}>
+                  <Trash className="mr-2 h-4 w-4" />
+                  <span>Delete</span>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </CardFooter>
+      </Card>
+      <DialogEdit editSlug={props} open={toogleModal} setOpen={setToogleModal} />
+    </>
   );
 }

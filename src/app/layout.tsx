@@ -5,6 +5,7 @@ import clsx from "clsx";
 
 import {Header} from "@/components/ui/header";
 import {Footer} from "@/components/ui/footer";
+import {Toaster} from "@/components/ui/sonner";
 
 import "./globals.css";
 
@@ -25,7 +26,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         )}
       >
         <Header />
-        <main className="px-40 py-8">{children}</main>
+        <main className="px-40 py-8">
+          {children}
+          <Toaster richColors position="top-center" />
+        </main>
         <Footer />
       </body>
     </html>
